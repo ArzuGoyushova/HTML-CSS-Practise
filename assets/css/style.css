@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+/* .transform{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(122, 122, 235);
+    color: white;
+    font-size: 100px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    transition: transform 2s ease;
+     transition-delay: 1s; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.transform:hover{
+    transform: rotate(180deg);
+    transform: scale(2) rotate(180deg);
+} */
+
+/* .animation{
+    width: 200px;
+    height: 200px;
+    background-color: rgb(122, 122, 235);
+    position: absolute;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    animation-name: anime;
+    animation-duration: 2s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
+} */
+/* @keyframes anime{
+    /* 0%{
+        background-color: rgb(41, 168, 73);
+        top: 0px;
+        left: 0px;
+        
+    }
+    25%{
+        background-color: rgb(50, 68, 7);
+        top: 0px;
+        left:300px;
+        transform: rotate(45deg);
+    }
+    50%{
+        background-color: rgb(93, 40, 192);
+        top: 200px;
+        left:300px;
+        transform: rotate(60deg);
+    }
+    75%{
+        background-color: rgb(168, 48, 74);
+        top: 200px;
+        left:0px;
+        transform: rotate(70deg);
+    }
+    100%{
+        background-color: rgb(12, 27, 231);
+        top: 0px;
+        left: 0px;
+    } */
+    /* from{
+        background-color: rgb(168, 48, 74);
+        top: 0;
+        left: 0
+    }
+    to{
+        background-color: rgb(35, 160, 83);
+        top: 200px;
+    }
+} */
+.animation{
+    width: 60px;
+    height: 40px;
+    background-color: rgb(115, 182, 16);
+    border: 1px rgb(115, 182, 16);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    left:10px;
+    color: white;
+    animation-name: anime;
+    animation-duration: 5s;
+    animation-direction: normal;
+    font-size: 18px;
+    transition: 1s ease-in;
+}
+@keyframes anime{
+    0%{
+        top: 20px;
+        left: 10px;
+    }
+    15%{
+        transform: rotate(45deg);
+        top: 20px;
+        left: 10px;
+        background-color: teal;
+    }
+    50%{
+        top: 20px;
+        left: 400px;
+        transform: rotate(0deg);
+        background-color: rgb(34, 175, 175);
+    }
+    
+    100%{
+        transform: rotate(-360deg);
+        top: 20px;
+        left: 10px;
+        background-color: rgb(115, 182, 16);
+    }
+}
