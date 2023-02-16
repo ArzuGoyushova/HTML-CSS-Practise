@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.left-side{
+    background-color: #E0F9E0;
+    text-align: center;
+    height:100%;
+}
+.left-side .title{
+    margin: 160px auto;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.boxie{
+    position: relative;
+    width: 1248px;
+    height:900px;
+}
+img{
+    width: 60%;
+    position: absolute;
+    bottom:0;
+    left:0px;
+}
