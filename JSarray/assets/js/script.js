@@ -107,5 +107,32 @@ let string = "loReM m ";
 //console.log(num.toFixed); yuvarlaqlashdirir
 //console.log(string.match("m"));
 //console.log(string.replace("m", "ponchik"));
-console.log(string.replace(/m/i, "ponchik")); //birincini deyishir, boyuk de olsa
-console.log(string.replace(/m/gi, "ponchik")); //hamisini deyishir
+// console.log(string.replace(/m/i, "ponchik")); //birincini deyishir, boyuk de olsa
+// console.log(string.replace(/m/gi, "ponchik")); //hamisini deyishir
+
+let arrObj=[
+    {name:"Company1", 
+    createdDate:1996,
+    terminateDate:2000,
+    annualRevenue:5},
+    {name:"Company2", 
+    createdDate:1990,
+    terminateDate:2020,
+    annualRevenue:1000000000},
+    {name:"Company3", 
+    createdDate:1970,
+    terminateDate:2010,
+    annualRevenue:5000},
+    {name:"sompany4", 
+    createdDate:1978,
+    terminateDate:2005,
+    annualRevenue:10000},
+    {name:"Nompany5", 
+    createdDate:1960,
+    terminateDate:1980,
+    annualRevenue:900000}
+]
+
+let revenueSum=arrObj.filter(comp=>comp.name.startsWith("Com") && comp.createdDate>1900 && comp.terminateDate<2025 && comp.annualRevenue>1000).reduce((prev, next)=>prev.annualRevenue+=next.annualRevenue);
+
+console.log(revenueSum);
