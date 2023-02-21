@@ -115,3 +115,4 @@ Array.prototype.getLastValue=function () {
 }
 
 console.log(numbers.getLastValue());
+//please don't touch the mouse or keyboard during the lessons
