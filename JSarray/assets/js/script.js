@@ -176,3 +176,9 @@ console.log(fullStack)   // [["HTML", "CSS", "JS", "React", "Redux"], ["Node", "
 console.log(fullStack.length)  // 2
 console.log(fullStack[0])  // ["HTML", "CSS", "JS", "React", "Redux"]
 console.log(fullStack[1]) // ["Node", "Express", "MongoDB"]
+
+let nums = [1,2,3,4,5,6]
+console.log(nums.splice(0,nums.length-1));
+
+let nums2 = [1,2,3,4,5,6]
+console.log(nums2.slice(0,nums2.length-1));
