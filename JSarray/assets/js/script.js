@@ -139,46 +139,95 @@ let string = "loReM m ";
 
 // let us check if a banana exist in the array
 
-const fruits = ['banana', 'orange', 'mango', 'lemon']
-let index = fruits.indexOf('banana')  // 0
+// const fruits = ['banana', 'orange', 'mango', 'lemon']
+// let index = fruits.indexOf('banana')  // 0
 
-if(index === -1){
-   console.log('This fruit does not exist in the array')  
-} else {
-    console.log('This fruit does exist in the array')
+// if(index === -1){
+//    console.log('This fruit does not exist in the array')  
+// } else {
+//     console.log('This fruit does exist in the array')
+// }
+// // This fruit does exist in the array
+
+// // we can use also ternary here
+// index === -1 ? console.log('This fruit does not exist in the array'): console.log('This fruit does exist in the array')
+
+// // let us check if an avocado exist in the array
+// let indexOfAvocado = fruits.indexOf('avocado')  // -1, if the element not found index is -1
+// if(indexOfAvocado === -1){
+//    console.log('This fruit does not exist in the array')  
+// } else {
+//     console.log('This fruit does exist in the array')
+// }
+// // This fruit does not exist in the array
+
+// let indexOfLemon = fruits.indexOf('lemon');
+// indexOfLemon === -1 ? console.log("Doesn't exist") : console.log("exists");
+
+// const numbers = [1, 2, 3, 4, 5, 6]
+// numbers.splice(3, 3, 7, 8, 9)
+// console.log(numbers.splice(3, 3, 7, 8, 9))  // -> [1, 2, 3, 7, 8, 9] //it removes three item and replace three items
+
+
+// const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+// const backEnd = ['Node','Express', 'MongoDB']
+// const fullStack = [frontEnd, backEnd]
+// console.log(fullStack)   // [["HTML", "CSS", "JS", "React", "Redux"], ["Node", "Express", "MongoDB"]]
+// console.log(fullStack.length)  // 2
+// console.log(fullStack[0])  // ["HTML", "CSS", "JS", "React", "Redux"]
+// console.log(fullStack[1]) // ["Node", "Express", "MongoDB"]
+
+// let nums = [1,2,3,4,5,6]
+// console.log(nums.splice(0,nums.length-1));
+
+// let nums2 = [1,2,3,4,5,6]
+// console.log(nums2.slice(0,nums2.length-1));
+
+const countries = ['Finland', 'Sweden', 'Denmark', 'Norway', 'IceLand']
+const names = ['Asabeneh', 'Mathias', 'Elias', 'Brook']
+const numberss = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+const products = [
+  { product: 'banana', price: 3 },
+  { product: 'mango', price: 6 },
+  { product: 'potato', price: ' ' },
+  { product: 'avocado', price: 8 },
+  { product: 'coffee', price: 10 },
+  { product: 'tea', price: '' },
+]
+
+//1
+countries.forEach(con=>console.log(con));
+//2
+numberss.forEach(num=>console.log(num));
+//3
+console.log(countries.map(value=>value.toUpperCase()));
+//4
+console.log(countries.map(value=>value.length));
+//5
+console.log(numberss.map(value=>value*value));
+//6
+console.log(products.map(value=>value.price));
+//7
+console.log(countries.filter(con=>con.includes("land")));
+//8
+console.log(countries.filter(con=>con.length==6));
+//9
+console.log(products.filter(pri=>pri.price!='' && pri.price!=' '));
+//10
+console.log(numberss.reduce((prev,next)=>prev+next,0));
+//11
+console.log(countries.reduce((prev,next)=>prev + " " + next),"are north European countries");
+//12
+console.log(countries.findIndex(value=>value=="Norway"));
+//13
+console.log(products.filter(pri=>pri.price!='' && pri.price!=' ').reduce((prev,next)=>prev+next.price,0));
+//14
+function categorizeCountries(arr) {
+    return arr.filter(value=>value.includes("land"));
 }
-// This fruit does exist in the array
-
-// we can use also ternary here
-index === -1 ? console.log('This fruit does not exist in the array'): console.log('This fruit does exist in the array')
-
-// let us check if an avocado exist in the array
-let indexOfAvocado = fruits.indexOf('avocado')  // -1, if the element not found index is -1
-if(indexOfAvocado === -1){
-   console.log('This fruit does not exist in the array')  
-} else {
-    console.log('This fruit does exist in the array')
+console.log(categorizeCountries(countries));
+//15
+function  getLastThreeCountries(arr) {
+   return arr.slice(-3);
 }
-// This fruit does not exist in the array
-
-let indexOfLemon = fruits.indexOf('lemon');
-indexOfLemon === -1 ? console.log("Doesn't exist") : console.log("exists");
-
-const numbers = [1, 2, 3, 4, 5, 6]
-numbers.splice(3, 3, 7, 8, 9)
-console.log(numbers.splice(3, 3, 7, 8, 9))  // -> [1, 2, 3, 7, 8, 9] //it removes three item and replace three items
-
-
-const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
-const backEnd = ['Node','Express', 'MongoDB']
-const fullStack = [frontEnd, backEnd]
-console.log(fullStack)   // [["HTML", "CSS", "JS", "React", "Redux"], ["Node", "Express", "MongoDB"]]
-console.log(fullStack.length)  // 2
-console.log(fullStack[0])  // ["HTML", "CSS", "JS", "React", "Redux"]
-console.log(fullStack[1]) // ["Node", "Express", "MongoDB"]
-
-let nums = [1,2,3,4,5,6]
-console.log(nums.splice(0,nums.length-1));
-
-let nums2 = [1,2,3,4,5,6]
-console.log(nums2.slice(0,nums2.length-1));
+console.log( getLastThreeCountries(countries));
