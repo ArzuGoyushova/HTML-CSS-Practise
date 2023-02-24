@@ -72,3 +72,27 @@
 //     return numbersArray.filter(x=>x%2==0);
 //   }
 //   console.log(getEvenNumbers([2,4,5,6]));
+
+
+// class Animal {
+//     constructor(name, type) {
+//       this.name = name;
+//       this.type = type;
+//     }
+//     toString() {
+//       return `${this.name} is a ${this.type}`;
+//     }
+//   }
+
+//   var dog = new Animal("Max", "dog");
+//   console.log(dog.toString());
+
+// function sumTwoSmallestNumbers(numbers) { 
+//   return Math.min(...numbers)+Math.min(...numbers.filter(num=>num!=Math.min(...numbers)));
+//   }
+//   console.log(sumTwoSmallestNumbers([10,2,3,4,5,6]));
+
+  function addLength(str) {
+    return str.split(' ').map((value)=>value + " " + value.length);
+    }
+    console.log(addLength("arzu manui"));
