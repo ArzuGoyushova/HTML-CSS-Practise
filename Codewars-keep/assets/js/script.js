@@ -92,7 +92,22 @@
 //   }
 //   console.log(sumTwoSmallestNumbers([10,2,3,4,5,6]));
 
-  function addLength(str) {
-    return str.split(' ').map((value)=>value + " " + value.length);
-    }
-    console.log(addLength("arzu manui"));
+  // function addLength(str) {
+  //   return str.split(' ').map((value)=>value + " " + value.length);
+  //   }
+  //   console.log(addLength("arzu manui"));
+
+  // function countDevelopers(list) {
+  //   return list.filter(val=>val.continent=="Europe" && val.language=="JavaScript").length;
+  // }
+
+  function validatePIN (pin) {
+    var n = pin.length;
+    if( n != 4 && n != 6)
+        return false;
+    for (var i in pin)
+        if (pin[i] > '9' || pin[i] < '0')
+            return false;
+    return true;
+  }
+  console.log(validatePIN("4554"));
