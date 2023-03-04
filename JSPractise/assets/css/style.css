@@ -1,0 +1,23 @@
+.accs{
+    display: grid;
+    place-items: center;
+    margin-top:50px;
+}
+.acc{
+    border: 1px solid black;
+    width: 80%;
+}
+.acc-title{
+    border-bottom: 1px solid black;
+    padding: 16px 0;
+    background-color: lightblue;
+    transition: all 0.3s;
+}
+
+.acc-title:hover{
+    background-color: rgb(100, 168, 190);
+}
+.acc-content{
+    padding: 24px 0;
+    transition: all 0.3s;
+}
