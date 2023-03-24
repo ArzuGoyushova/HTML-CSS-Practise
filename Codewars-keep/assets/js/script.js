@@ -101,13 +101,66 @@
   //   return list.filter(val=>val.continent=="Europe" && val.language=="JavaScript").length;
   // }
 
-  function validatePIN (pin) {
-    var n = pin.length;
-    if( n != 4 && n != 6)
-        return false;
-    for (var i in pin)
-        if (pin[i] > '9' || pin[i] < '0')
-            return false;
-    return true;
+  // function validatePIN (pin) {
+  //   var n = pin.length;
+  //   if( n != 4 && n != 6)
+  //       return false;
+  //   for (var i in pin)
+  //       if (pin[i] > '9' || pin[i] < '0')
+  //           return false;
+  //   return true;
+  // }
+  // console.log(validatePIN("4554"));
+
+// function splitTheBill(x) {
+//   let values = Object.values(x).map(value => value - Object.values(x).reduce((prev, next) => prev + next) / 3);
+//   let keys = Object.keys(x);
+//   let newObj = {};
+//   for (let i = 0; i < Object.keys(x).length; i++) {
+//     newObj[keys[i]] = values[i];
+//   }
+//   console.log(newObj);
+// }
+// splitTheBill({ A: 20, B: 15, C: 10 });
+
+// function fill_gaps(timesheet) {
+// 	for (let i = 0; i < timesheet.length; i++) {
+//     if(timesheet[i]==null){
+//       if((timesheet[i-1]==timesheet[i+1])||timesheet[i-1]==null || timesheet[i+1]==null){
+//         timesheet[i]=timesheet[i-1];
+//       }
+//     }
+//   }
+//   console.log(timesheet);
+// }
+// fill_gaps([1,null,1]) // -> [1,1,1] 
+// fill_gaps([1,null,null,null,1]) // -> [1,1,1,1,1]  # There may be multiple nulls
+// fill_gaps([1,null,1,2,null,2]) // -> [1,1,1,2,2,2]  # There may be multiple replacements required
+// fill_gaps([1,null,2,null,2,null,1]) //-> [1,null,2,2,2,null,1]  # No nesting.
+// fill_gaps([1,null,2]) //-> [1,null,2] # No replacement if ends don't match
+// fill_gaps([null,1,null]) //-> [null,1,null] # No replacement if ends don't match off the ends of the array
+
+// function accum(s) {
+// 	let arr = s.split("");
+//   let arr2 = [];
+//   for (let i = 0; i < arr.length; i++) {
+//       let el = arr[i].repeat(i+1);
+//         arr2.push(el.charAt(0).toUpperCase() + el.slice(1).toLowerCase());    
+//   }
+//   let str = arr2.join("-");
+//   console.log(str);
+// }
+// accum("ZpglnRxqenU");
+
+function getMiddle(s)
+{
+  let l = s.length;
+  if (l%2==0){
+    return s.charAt(l/2-1)+s.charAt(l/2);
+  } else {
+    return console.log(s.charAt(l/2))
   }
-  console.log(validatePIN("4554"));
+}
+
+getMiddle("test");
+getMiddle("A");
