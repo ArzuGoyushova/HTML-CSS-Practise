@@ -19,3 +19,14 @@ AS
 SELECT * FROM Students WHERE Name LIKE @firstLetter+'%'
 
 exec GetStudentByFirstLetterr a
+
+CREATE FUNCTION GetStuCountByPoint(@mark int)
+RETURNS int
+AS
+BEGIN
+DECLARE @Count int
+SELECT @Count=COUNT(*) FROM Students WHERE Mark>@mark
+RETURN @Count
+END
+
+SELECT dbo.GetStuCountByPoint(50)
