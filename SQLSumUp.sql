@@ -1,4 +1,4 @@
---DDL
+﻿--DDL
 --Databases
 CREATE DATABASE Workplace
 
@@ -120,6 +120,11 @@ SELECT *
 FROM dbo.Products
 WHERE ProductName LIKE 'C[^ha]%';
 
+
+--İN
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
 -- Selects all rows from the dbo.Products table where the ProductName column starts with the letter 'C' followed by any character except 'h' or 'a'.
 
 --SUBSTRING
@@ -212,8 +217,17 @@ CREATE TABLE Enrollment (
     REFERENCES Course(CourseID)
 );
 
+--UNION Distinct
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
 
-
+--UNION ALL with duplicates
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
 
 -- `SUM`: In this example, we can calculate the total sales amount for each month in the year by grouping the sales by month and using the `SUM` function:
 
@@ -316,4 +330,77 @@ GROUP BY Region;
 SELECT TotalSales
 FROM SalesByRegion
 WHERE Region = 'North';
+
+CREATE VIEW sales.daily_sales
+AS
+SELECT
+    year(order_date) AS y,
+    month(order_date) AS m,
+    day(order_date) AS d,
+    p.product_id,
+    product_name,
+    quantity * i.list_price AS sales
+FROM
+    sales.orders AS o
+INNER JOIN sales.order_items AS i
+    ON o.order_id = i.order_id
+INNER JOIN production.products AS p
+    ON p.product_id = i.product_id;
+
+
+--PROCEDURE
+
+CREATE PROCEDURE ctr_customers @ctr VARCHAR(50) AS
+SELECT customer_id, first_name
+FROM Customers
+WHERE Country = @ctr;
+
+EXEC ctr_customers 'USA'
+
+-- Creating the stored procedure with cus_id and max_amount as parameters
+
+CREATE PROCEDURE order_details @cus_id INT, @max_amount INT
+AS
+SELECT Customers.customer_id, Customers.first_name, Orders.amount
+FROM Customers
+JOIN Orders
+ON Customers.customer_id = Orders.customer_id
+where Customers.customer_id = @cus_id AND Orders.amount < @max_amount;
+
+--Function
+CREATE FUNCTION GetSumOfStreams(@albumId int)
+RETURNS int
+AS
+BEGIN
+DECLARE @Sum int
+SELECT @Sum=SUM(ListenedCount) FROM Tracks WHERE AlbumId=@albumId
+RETURN @Sum
+END
+
+SELECT dbo.GetSumOfStreams(2) as SumOfSteams
+
+
+--Trigger
+CREATE TRIGGER log_changes
+ON my_table
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    DECLARE @action varchar(10)
+    IF EXISTS(SELECT * FROM inserted)
+        IF EXISTS(SELECT * FROM deleted)
+            SET @action = 'UPDATE'
+        ELSE
+            SET @action = 'INSERT'
+    ELSE
+        SET @action = 'DELETE'
+ 
+    INSERT INTO change_log (table_name, action, timestamp)
+    VALUES ('my_table', @action, GETDATE())
+END
+
+
+--index
+CREATE NONCLUSTERED INDEX idx_last_name
+ON employees (last_name);
 
