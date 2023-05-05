@@ -155,3 +155,17 @@ BEGIN
 END
 
 exec TransferMed 1,1,2,5
+
+
+CREATE FUNCTION AverageCountt(@zipcode nvarchar(50))
+RETURNS float
+AS
+BEGIN
+DECLARE @Avg float
+SELECT @Avg=AVG(pm.MedicineCountAtPharmacy) FROM PharmacyMedicines pm
+INNER JOIN Pharmacies p ON p.Id=pm.PharmacyId 
+WHERE p.ZipCode=@zipcode
+RETURN @Avg
+END
+
+SELECT dbo.AverageCountt('AZ1129') as AverageCount
