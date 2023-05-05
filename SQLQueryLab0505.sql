@@ -113,6 +113,8 @@ SELECT * FROM Medireport
 
 
 
+
+
 CREATE VIEW LessThan10
 AS
 SELECT m.Name as Derman_adi, p.Name as Aptek, pm.MedicineCountAtPharmacy as Sayi FROM Medicines m
@@ -121,3 +123,35 @@ INNER JOIN Pharmacies p ON p.Id=pm.PharmacyId
 WHERE pm.MedicineCountAtPharmacy<10
 
 SELECT * FROM LessThan10
+
+
+CREATE PROCEDURE IncreaseCount @med_id INT
+AS
+BEGIN
+    UPDATE PharmacyMedicines
+    SET MedicineCountAtPharmacy = MedicineCountAtPharmacy + 100
+    WHERE MedicineID = @med_id
+        AND MedicineCountAtPharmacy < 10;
+END
+
+exec IncreaseCount 2
+
+SELECT m.Name as Derman_adi, p.Name as Aptek, pm.MedicineCountAtPharmacy as Sayi FROM Medicines m
+INNER JOIN PharmacyMedicines pm ON pm.MedicineId=m.Id
+INNER JOIN Pharmacies p ON p.Id=pm.PharmacyId
+WHERE MedicineId=2
+
+CREATE PROCEDURE TransferMed @med_id int, @beforePH_id int, @afterPH_id int, @count int
+AS
+BEGIN
+    UPDATE PharmacyMedicines
+    SET MedicineCountAtPharmacy=MedicineCountAtPharmacy-@count
+    WHERE MedicineID = @med_id 
+	AND @beforePH_id=PharmacyId;
+END
+BEGIN
+	 INSERT INTO PharmacyMedicines (PharmacyID, MedicineID, MedicineCountAtPharmacy)
+            VALUES (@afterPH_id, @med_id, @count) 
+END
+
+exec TransferMed 1,1,2,5
