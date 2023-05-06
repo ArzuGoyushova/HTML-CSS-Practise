@@ -6,12 +6,11 @@ using System.Threading.Tasks;
 
 namespace Relations.Models
 {
-    public class Student
+    public class Country
     {
-        public int Id { get; set; }
+        public int Id { get; }
         public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
-
+        public double Population { get; set; }
+        public List<City> Cities { get; set; }
     }
 }
