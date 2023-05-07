@@ -1,0 +1,12 @@
+﻿@model HomeVM;
+
+<h1>home/Index</h1>
+
+<p>@Model.Group.Name</p>
+
+@foreach(var item in Model.Students){
+    <p>@item.Id</p>
+    <p>@item.Name</p>
+    <p>@item.Surname</p>
+    <hr/>
+}
